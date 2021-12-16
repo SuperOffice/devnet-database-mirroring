@@ -80,19 +80,28 @@ namespace DatabaseMirroringProject.SuperOfficeMirror
 
 
 
-  //      protected override SuperIdToken ValidateSuperOfficeSignedToken(string token)
-  //      {
-		//	var tokenHandler = new SuperIdTokenHandler();
-		//	tokenHandler.JwtIssuerSigningCertificate = new X509Certificate2(
-		//	   HostingEnvironment.MapPath("~/App_Data/") + "SuperOfficeFederatedLogin.crt"
-		//	);
+        protected override SuperIdToken ValidateSuperOfficeSignedToken(string token)
+        {
+			string issuer;
 
-		//	// Change subdomain for correct environment (sod, stage, online).
-		//	tokenHandler.ValidIssuer = "https://sod.superoffice.com";
-		//	tokenHandler.CertificateValidator = X509CertificateValidator.None;
+			// extract the ValidIssuer claim value
+			var SecurityTokenHandler = new Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler();
+			var securityToken = SecurityTokenHandler.ReadJsonWebToken(token);
+			if (!securityToken.TryGetPayloadValue<string>("iss", out issuer))
+			{
+				throw new Microsoft.IdentityModel.Tokens.SecurityTokenException("Unable to read ValidIssuer from AuthenticationRequest SignedToken.");
+			}
 
-		//	return tokenHandler.ValidateToken(token, TokenType.Jwt);
-		//}
+			var tokenHandler = new SuperIdTokenHandler();
+			tokenHandler.ValidIssuer = issuer;
+			tokenHandler.ValidateAudience = false;
+            tokenHandler.CertificateValidator = X509CertificateValidator.None;
+            tokenHandler.JwtIssuerSigningCertificate = new X509Certificate2(
+               HostingEnvironment.MapPath("~/App_Data/") + "SuperOfficeFederatedLogin.crt"
+            );
+
+            return tokenHandler.ValidateToken(token, TokenType.Jwt);
+        }
 
         protected override string GetAdditionalAuthResponseInfo()
 		{
