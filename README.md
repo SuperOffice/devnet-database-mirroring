@@ -2,23 +2,23 @@
 
 A repository containing a sample database mirroring project.
 
-This project is a sample based on the article from the SuperOffice community web site [Getting Started With Database Mirroring](https://community.superoffice.com/en/content/content/online/database-mirroring/).
+This project is a sample based on the article from the docs site [Getting Started With Database Mirroring](https://docs.superoffice.com/online/mirroring/getting-started/index.html).
 
 Database mirroring will not replicate all tables. The service skips unnecessary tables containing only configuration and/or sensitive information. A complete list of skipped tables is discussed in the article mentioned above.
 
-To include more tables to skip, the table names must be added to a SkipTable user preference. To read more about that, please read the [skip mirroring tables](https://community.superoffice.com/en/developer/create-apps/how-to/sustain/skip-mirroring-tables/) article.
+To include more tables to skip, the table names must be added to a SkipTable user preference. To read more about that, please read the [skip mirroring tables](https://docs.superoffice.com/online/mirroring/skip-tables.html) article.
 
 ## Requirements
 
-* Must be an online customer with an active tenant in the production environment, or have a sandbox tenant in the SuperOffice online development environment. To get a sandbox environment, [register a SuperOffice online developer account](https://community.superoffice.com/en/developer/create-apps/resources/developer-registration/).
+* Must be an online customer with an active tenant in the production environment, or have a sandbox tenant in the SuperOffice online development environment. To get a sandbox environment, [register a SuperOffice online developer account](https://docs.superoffice.com/apps/getting-started/developer-registration-form.html).
 
-* Must have a [registered application](https://community.superoffice.com/en/developer/create-apps/resources/application-registration/) in SuperOffice Online.
+* Must have a [registered application](https://docs.superoffice.com/developer-portal/create-app/index.html) in SuperOffice Developer Portal.
 
 * Destination database server must be __SQL Server__.
 
-* Application must be authorized to access tenant resources. You can do this by signing into our [help application](https://devnet-tokens.azurewebsites.net/account/signin) and approve your application.
+* Application must be authorized to access tenant resources. You can do this by signing into our [helper application](https://devnet-tools.superoffice.com/account/signin) and approve your application.
 
-* Server hosting IIS must have installed [SuperOffice online certificates](https://community.superoffice.com/en/developer/create-apps/resources/downloads/) in accordance with the [installation procedures](https://community.superoffice.com/en/developer/create-apps/how-to/set-up/configure-certificates/). Use the correct certificates based on the target environment (development, stage and production).
+* This Server hosting IIS must have installed [SuperOffice online certificates](https://docs.superoffice.com/authentication/online/certificates/index.html) in accordance with the [installation procedures](https://docs.superoffice.com/authentication/online/certificates/add-certificate-snap-in.html). Use the correct certificates based on the target environment (development, stage and production).
 
 ## Configuration
 
@@ -30,5 +30,8 @@ To include more tables to skip, the table names must be added to a SkipTable use
 |MirrorDatabaseName  | Name of destination database                         |
 |ConnectionBase      | Database connection string                           |
 |PrivateKeyFile      | Filename containing applications  private XML RSA key|
+|EnableLogging       | Determines if a log file is written to the Temp dir. |
 
-Questions should be asked on the [community developer forums](https://community.superoffice.com/en/Developer/Forum/Rooms/superoffice-product-api-group/crm-online-application/).
+Questions should be asked on the [community developer forums](https://community.superoffice.com/en/technical/forums/api-forums/client-libraries-and-tools/).
+
+Any bugs or issues observed should be added here under the [issues tab](https://github.com/SuperOffice/devnet-database-mirroring/issues).
