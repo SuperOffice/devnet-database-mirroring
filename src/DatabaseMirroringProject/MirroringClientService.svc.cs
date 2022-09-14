@@ -64,7 +64,6 @@ namespace DatabaseMirroringProject.SuperOfficeMirror
 			return WebConfigurationManager.AppSettings["SoAppId"];
 		}
 
-
 		/// <summary>
 		/// Get private key from the keyfile that is specified in web.config
 		/// </summary>
@@ -76,9 +75,6 @@ namespace DatabaseMirroringProject.SuperOfficeMirror
 				fileName = Path.Combine(HostingEnvironment.MapPath(@"~"), fileName);
 			return File.ReadAllText(fileName);
 		}
-
-
-
 
         protected override SuperIdToken ValidateSuperOfficeSignedToken(string token)
         {
@@ -103,7 +99,7 @@ namespace DatabaseMirroringProject.SuperOfficeMirror
             return tokenHandler.ValidateToken(token, TokenType.Jwt);
         }
 
-        protected override string GetAdditionalAuthResponseInfo()
+		protected override string GetAdditionalAuthResponseInfo()
 		{
 			// Uncomment this to return a "please do not run replication to me right now"
 			// as part of the authentication response. Doing so provides breathing space while
@@ -156,23 +152,26 @@ namespace DatabaseMirroringProject.SuperOfficeMirror
 		/// </remarks>
 		public override void LogEvent(string contextIdentifier, string operation, ReplicationEventType type, string message, string additionalInfo)
 		{
-			try
+			if(Convert.ToBoolean(WebConfigurationManager.AppSettings["EnableLogging"]))
 			{
-				var fileName = Path.Combine(Path.GetTempPath(), "Mirroring-" + DateTime.Today.ToString("yyyyMMdd") + ".log");
-				var infoLine = additionalInfo.Replace("\n", "\n\t").Replace("\r", "").TrimEnd('\t', '\n');
+                try
+                {
+                    var fileName = Path.Combine(Path.GetTempPath(), "Mirroring-" + DateTime.Today.ToString("yyyyMMdd") + ".log");
+                    var infoLine = additionalInfo.Replace("\n", "\n\t").Replace("\r", "").TrimEnd('\t', '\n');
 
-				var logItem = string.Format("{0:HH\\:mm\\:ss} {1} - [{2}] in {3}: {4}{5}\n",
-					DateTime.Now,
-					contextIdentifier,
-					type,
-					operation,
-					message.Replace("\n", " ").Replace("\r", "").Trim('\t'),
-					string.IsNullOrWhiteSpace(infoLine) ? "" : "\n\t" + infoLine
-					);
+                    var logItem = string.Format("{0:HH\\:mm\\:ss} {1} - [{2}] in {3}: {4}{5}\n",
+                        DateTime.Now,
+                        contextIdentifier,
+                        type,
+                        operation,
+                        message.Replace("\n", " ").Replace("\r", "").Trim('\t'),
+                        string.IsNullOrWhiteSpace(infoLine) ? "" : "\n\t" + infoLine
+                        );
 
-				File.AppendAllText(fileName, logItem.Replace("\n", "\r\n"));
-			}
-			catch { /* just... don't crash, ok? */ }
+                    File.AppendAllText(fileName, logItem.Replace("\n", "\r\n"));
+                }
+                catch { /* just... don't crash, ok? */ }
+            }
 		}
 	}
 }
