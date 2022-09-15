@@ -16,7 +16,7 @@ To include more tables to skip, the table names must be added to a SkipTable use
 
 * Destination database server must be __SQL Server__.
 
-* Application must be authorized to access tenant resources. You can do this by signing into our [helper application](https://devnet-tools.superoffice.com/account/signin) and approve your application.
+* Application must be [published](https://docs.superoffice.com/developer-portal/howto/request-to-publish.html).
 
 * This Server hosting IIS must have installed [SuperOffice online certificates](https://docs.superoffice.com/authentication/online/certificates/index.html) in accordance with the [installation procedures](https://docs.superoffice.com/authentication/online/certificates/add-certificate-snap-in.html). Use the correct certificates based on the target environment (development, stage and production).
 
