@@ -1,6 +1,10 @@
-# Define file paths
-$privateKeyFile = "C:\github\SuperOffice\devnet-database-mirroring\build\privatekey.txt"
-$webConfigFile = "C:\github\SuperOffice\devnet-database-mirroring\build\web.config"
+# Get the directory of the script
+$scriptPath = Split-Path -Parent $MyInvocation.MyCommand.Definition
+
+# Define relative file paths
+$privateKeyFile = Join-Path $scriptPath "privatekey.txt"
+$webConfigFile = Join-Path $scriptPath "web.config"
+
 
 # New content for privatekey.txt
 $privateKeyContent = @"
