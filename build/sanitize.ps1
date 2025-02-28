@@ -25,7 +25,7 @@ if ($soAppIdSetting) {
 $connectionBaseSetting = $webConfig.configuration.appSettings.add | Where-Object { $_.key -eq "ConnectionBase" }
 if ($connectionBaseSetting) {
     # Use regex to replace "Password=MYPASSWORD" with "Password={{YOURPASSWORD}}"
-    $connectionBaseSetting.value = $connectionBaseSetting.value -replace "Password=.*?;", "Password={{YOURPASSWORD}};"
+    $connectionBaseSetting.value = "Server=YOUR_SERVER_NAME;User ID=YOUR_DB_USER_NAME;Password=YOUR_DB_USER_PASSWORD"
 }
 
 # Save the modified web.config
