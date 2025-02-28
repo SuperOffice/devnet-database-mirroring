@@ -18,7 +18,7 @@ Set-Content -Path $privateKeyFile -Value $privateKeyContent -Encoding UTF8
 # Replace SoAppId value
 $soAppIdSetting = $webConfig.configuration.appSettings.add | Where-Object { $_.key -eq "SoAppId" }
 if ($soAppIdSetting) {
-    $soAppIdSetting.value = "FIXED"
+    $soAppIdSetting.value = "SANITIZED"
 }
 
 # Replace password in ConnectionBase
