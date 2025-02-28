@@ -1,9 +1,11 @@
 # Get the directory of the script
 $scriptPath = Split-Path -Parent $MyInvocation.MyCommand.Definition
+$repoRoot = Split-Path -Parent $scriptPath
+$projectRoot = Join-Path $repoRoot (Join-Path "src" "DatabaseMirroringWcfService") 
 
 # Define relative file paths
-$privateKeyFile = Join-Path $scriptPath "privatekey.txt"
-$webConfigFile = Join-Path $scriptPath "web.config"
+$privateKeyFile = Join-Path $projectRoot "privatekey.txt"
+$webConfigFile = Join-Path $projectRoot "web.config"
 
 
 # New content for privatekey.txt
