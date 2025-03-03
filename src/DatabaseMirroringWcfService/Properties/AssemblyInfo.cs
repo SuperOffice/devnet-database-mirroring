@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("DatabaseMirroringProject")]
-[assembly: AssemblyDescription("Sample database mirroring project.")]
+[assembly: AssemblyTitle("DatabaseMirroringApplication")]
+[assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("SuperOffice Developer Network")]
-[assembly: AssemblyProduct("DatabaseMirroringProject")]
-[assembly: AssemblyCopyright("Copyright ©  2020")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("DatabaseMirroringApplication")]
+[assembly: AssemblyCopyright("Copyright ©  2025")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("b801c0a8-1938-48bf-9ac5-ace60eab6605")]
+[assembly: Guid("0ef793ab-48cb-47a5-aff7-c82c19dc283e")]
 
 // Version information for an assembly consists of the following four values:
 //

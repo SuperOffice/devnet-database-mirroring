@@ -1,3 +1,0 @@
-﻿<RSAKeyValue>
-  <YOURPRIVATEKEY \>
-</RSAKeyValue>
