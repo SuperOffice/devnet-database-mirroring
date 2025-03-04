@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="DatabaseMirroringApplication.DatabaseMirroringService" CodeBehind="DatabaseMirroringService.svc.cs" %>
