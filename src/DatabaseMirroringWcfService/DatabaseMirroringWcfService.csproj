@@ -108,13 +108,13 @@
       <HintPath>packages\Microsoft.IdentityModel.Tokens.8.3.1\lib\net472\Microsoft.IdentityModel.Tokens.dll</HintPath>
     </Reference>
     <Reference Include="SuperOffice.Online.Mirroring, Version=1.0.0.0, Culture=neutral, PublicKeyToken=bdda2d694ae22a86, processorArchitecture=MSIL">
-      <HintPath>packages\SuperOffice.Online.Mirroring.1.0.0-rc.1\lib\net48\SuperOffice.Online.Mirroring.dll</HintPath>
+      <HintPath>packages\SuperOffice.Online.Mirroring.1.0.1\lib\net48\SuperOffice.Online.Mirroring.dll</HintPath>
     </Reference>
     <Reference Include="SuperOffice.Online.Mirroring.Contract, Version=1.0.0.0, Culture=neutral, PublicKeyToken=bdda2d694ae22a86, processorArchitecture=MSIL">
-      <HintPath>packages\SuperOffice.Online.Mirroring.1.0.0-rc.1\lib\net48\SuperOffice.Online.Mirroring.Contract.dll</HintPath>
+      <HintPath>packages\SuperOffice.Online.Mirroring.1.0.1\lib\net48\SuperOffice.Online.Mirroring.Contract.dll</HintPath>
     </Reference>
     <Reference Include="SuperOffice.Online.Mirroring.Data, Version=1.0.0.0, Culture=neutral, PublicKeyToken=bdda2d694ae22a86, processorArchitecture=MSIL">
-      <HintPath>packages\SuperOffice.Online.Mirroring.1.0.0-rc.1\lib\net48\SuperOffice.Online.Mirroring.Data.dll</HintPath>
+      <HintPath>packages\SuperOffice.Online.Mirroring.1.0.1\lib\net48\SuperOffice.Online.Mirroring.Data.dll</HintPath>
     </Reference>
     <Reference Include="SuperOffice.Online.Tokens, Version=7.21.0.0, Culture=neutral, PublicKeyToken=bdda2d694ae22a86, processorArchitecture=MSIL">
       <HintPath>packages\SuperOffice.Online.Tokens.7.21.0\lib\netstandard2.0\SuperOffice.Online.Tokens.dll</HintPath>
